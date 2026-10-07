@@ -680,6 +680,7 @@
     const held=tot-byp, rob=Math.round(held/tot*100);
     elRtStatus.innerHTML=`Done. <b>${held}</b>/${tot} attacks held, <b>${byp}</b> findings. Overall robustness <b>${rob}%</b>. See the Dashboard tab for the OWASP breakdown.`;
     elRobChip.hidden=false; elRobN.textContent=rob+"%";
+    renderDashboard(); // refresh the dashboard view so it is ready even if already open
   }
   function clearRun(){ if(runTimer){clearInterval(runTimer);runTimer=null;} lastRun=null; elMatrix.innerHTML=""; elRunAll.disabled=false; elRobChip.hidden=true; elRtStatus.textContent='Not run yet. Press "run full assessment" to sweep 10 techniques across 9 models.'; renderDashboard(); }
   elRunAll.addEventListener("click",runAssessment);
